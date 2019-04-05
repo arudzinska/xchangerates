@@ -3,15 +3,15 @@ from rest_framework import serializers
 from .models import Currency, ExchangeRate
 
 
-class Currency(serializers.ModelSerializer):
+class CurrencySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Currency
         fields = '__all__'
 
 
-class ExchangeRate(serializers.ModelSerializer):
+class ExchangeRateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ExchangeRate
-        fields = '__all__'
+        exclude = (id,)

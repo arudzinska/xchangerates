@@ -16,7 +16,7 @@ class ExchangeRate(models.Model):
     currency = models.ForeignKey(Currency, verbose_name="Currency", null=False, blank=False, on_delete=models.CASCADE)
     rate = models.DecimalField("Exchange rate", max_digits=12, decimal_places=3, default=Decimal(0.0), null=False,
                                blank=False)
-    timestamp = models.DateTimeField("Timestamp", null=False, auto_now_add=True)
+    created = models.DateTimeField("Created", null=False, auto_now_add=True)
 
     def __str__(self):
         return "{} - {}".format(self.currency, self.rate)
