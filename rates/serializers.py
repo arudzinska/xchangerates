@@ -12,6 +12,11 @@ class CurrencySerializer(serializers.ModelSerializer):
 
 class ExchangeRateSerializer(serializers.ModelSerializer):
 
+    currency = serializers.SlugRelatedField(
+        slug_field='iso_code',
+        read_only=True
+    )
+
     class Meta:
         model = ExchangeRate
-        exclude = (id,)
+        exclude = ('id',)
